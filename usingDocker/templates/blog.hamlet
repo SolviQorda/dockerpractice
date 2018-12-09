@@ -1,0 +1,32 @@
+<div class="col-md-12">
+    <a class="btn btn-primary" role="button" data-toggle="collapse" href="#blogform" aria-expanded="false" aria-controls="collapseExample">Show form</a>
+<div class="col-md-12 collapse" id="blogform">
+    <h3>Add an article
+    <form method=post action=@{BlogR} enctype=#{enctype}>
+        ^{widget}
+        <button class="btn btn-success">Create post
+
+<div class="row">
+
+    <div class="col-md-8">
+        $maybe Entity _ article <- currentPost
+            <h2>#{blogTitle article}
+            <p>
+                <small>Last updated by site admin on #{formatDateStr $ blogPosted article}
+            <hr />
+            #{blogArticle article}
+        $nothing
+            <h2>No articles yet.
+        <hr />
+
+    <div class="col-md-4">
+        $if Prelude.null allPosts
+            <h3>No posts yet.
+        $else
+            <h3>Previous posts
+            $forall Entity id article <- allPosts
+                <dl>
+                    <dt>
+                        <a href=@{ArticleR id}>#{blogTitle article}
+                    <dd>
+                        <small>Posted on #{formatDateStr $ blogPosted article}

@@ -1,0 +1,7 @@
+version: "2.0"
+services:
+  database:
+    image: postgres
+    env_file: ./database/dev_env
+    ports:
+      - "5433:5433"

@@ -1,0 +1,8 @@
+APPROOT=http://locahost
+HOST=0.0.0.0
+PGHOST=database
+PGUSER=dummyzap
+PGDATABASE=dummyzap
+PGPASS=dummyzap
+ADMIN_NAME=dummyzap
+ADMIN_PASSWORD=dummyzap

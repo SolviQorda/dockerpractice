@@ -1,0 +1,6 @@
+project/
+   site/
+   database/
+   webserver/
+   docker-compose.yml
+

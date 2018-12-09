@@ -1,0 +1,6 @@
+{-# LANGUAGE PackageImports #-}
+import "usingDocker" Application (develMain)
+import Prelude (IO)
+
+main :: IO ()
+main = develMain

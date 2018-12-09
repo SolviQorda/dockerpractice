@@ -1,0 +1,25 @@
+version: "2.0"
+services:
+  database:
+    image: postgres
+    env_file: ./database/prod
+  binary:
+    build: ./binary
+    command: /opt/server/usingDocker
+    env_file: ./binary/prod
+    links:
+      - database
+    tty: false
+    volumes:
+      - /etc/ssl/certs/:/etc/ssl/certs/
+      - ./binary:/opt/server
+    working_dir: /opt/server
+  webserver:
+    build: webserver
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+      - binary
+    volumes_from:
+      - binary
